@@ -19,17 +19,13 @@ extension OpenAIAPI {
 
     public struct ChatCompletionRequest: Codable {
         var messages: [Message]
-        var model: String
-        var max_tokens: Int = 1500
-        var temperature: Double = 0.2
+        var model: Model
         var stream = false
         var stop: [String]?
 
-        public init(messages: [Message], model: String = "gpt-3.5-turbo", max_tokens: Int = 1500, temperature: Double = 0.2, stop: [String]? = nil) {
+        public init(messages: [Message], model: Model, stop: [String]? = nil) {
             self.messages = messages
             self.model = model
-            self.max_tokens = max_tokens
-            self.temperature = temperature
             self.stop = stop
         }
     }
